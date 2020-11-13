@@ -116,26 +116,8 @@ seriesAnalysis.findTempClosestToZero();
 
     }
 
-    @Test
-    public void TestToOneSample() {
-        double[] temperatureSeries = {1};
-        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double expResult = 1.0;
-        double actResult = seriesAnalysis.findTempClosestToZero();
-
-        assertEquals(expResult, actResult, 0.00001);
-    }
-
-    @Test
-    public void TestToSample() {
-        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
-        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double expResult = 1.0;
-        double actResult = seriesAnalysis.findTempClosestToZero();
-
-
-        assertEquals(expResult, actResult, 0.00001);
-    }
+  
+    
 
     @Test(expected = IllegalArgumentException.class)
     public void TestToValueZeroSample() {
@@ -144,16 +126,7 @@ seriesAnalysis.findTempClosestToZero();
         seriesAnalysis.findTempClosestToValue(0);
 
     }
-    @Test
-    public void TestToValueOneSample() {
-        double[] temperatureSeries = {1};
-        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double expResult = 1.0;
-        double actResult = seriesAnalysis.findTempClosestToValue(2);
-
-        assertEquals(expResult, actResult, 0.00001);
-    }
-
+ 
     @Test
     public void TestToValueSample() {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0, 2, -1};
@@ -164,46 +137,14 @@ seriesAnalysis.findTempClosestToZero();
 
         assertEquals(expResult, actResult, 0.00001);
     }
-    @Test
-    public void TestFindLess(){
-        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0, 2, -1};
-        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double [] expresult = {-1, 1, -5};
-        double [] actResult = seriesAnalysis.findTempsLessThen(2);
-
-        assertArrayEquals(expresult, actResult, 0.00001);
-    }
-
-    @Test
-    public void TestFindOneElLess(){
-        double[] temperatureSeries = {-1};
-        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double [] expresult = {};
-        double [] actResult = seriesAnalysis.findTempsLessThen(2);
-
-        assertArrayEquals(expresult, actResult, 0.00001);
-    }
+   
+   
     @Test(expected = IllegalArgumentException.class)
     public void TestFindLessEmpty(){
         double[] temperatureSeries = {};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
 
         seriesAnalysis.findTempsLessThen(0);
-    }
-
-
-
-
-
-
-    @Test
-    public void TestGreater(){
-        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0, 2, -1};
-        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double [] expresult = {3, 5, 5};
-        double [] actResult = seriesAnalysis.findTempsGreaterThen(2);
-
-        assertArrayEquals(expresult, actResult, 0.00001);
     }
 
     @Test
